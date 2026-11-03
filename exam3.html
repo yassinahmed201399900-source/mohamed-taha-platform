@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>امتحان الصف الثاني الإعدادي - منصة مستر محمد طه</title>
+  
+  <!-- خط تجوال -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+  
+  <!-- مكتبة تحويل HTML إلى PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background-color: #0b132b;
+      color: #ffffff;
+      direction: rtl;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-btn {
+      background-color: #00b4d8;
+      color: #0b132b;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background-color: #90e0ef;
+    }
+
+    .brand-title {
+      color: #00b4d8;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .exam-header {
+      background-color: #1c2541;
+      border: 1px solid #2a385c;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .exam-header h1 {
+      font-size: 26px;
+      color: #00b4d8;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .exam-header p {
+      color: #8d99ae;
+      font-size: 15px;
+    }
+
+    .student-info-box {
+      background-color: #1c2541;
+      border: 1px solid #2a385c;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .student-info-box label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #00b4d8;
+    }
+
+    .student-info-box input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #2a385c;
+      background-color: #0b132b;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .student-info-box input:focus {
+      border-color: #00b4d8;
+    }
+
+    .question-card {
+      background-color: #1c2541;
+      border: 1px solid #2a385c;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 20px;
+    }
+
+    .question-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-label {
+      background-color: #0b132b;
+      border: 2px solid #2a385c;
+      padding: 12px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .option-label:hover {
+      border-color: #00b4d8;
+      background-color: #131c38;
+    }
+
+    .option-label input {
+      accent-color: #00b4d8;
+      transform: scale(1.2);
+    }
+
+    .submit-btn {
+      background-color: #10b981;
+      color: #ffffff;
+      border: none;
+      padding: 15px 40px;
+      font-size: 18px;
+      font-weight: 800;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover {
+      background-color: #059669;
+    }
+
+    /* تصميم الشهادة */
+    #certificate-container {
+      display: none;
+      margin-top: 40px;
+    }
+
+    .certificate {
+      background: #ffffff;
+      color: #0b132b;
+      padding: 40px;
+      border-radius: 16px;
+      border: 8px double #00b4d8;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .certificate h2 {
+      color: #0b132b;
+      font-size: 26px;
+      margin-bottom: 5px;
+      font-weight: 800;
+    }
+
+    .certificate h3 {
+      color: #00b4d8;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .certificate p {
+      font-size: 16px;
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    .certificate .student-name-display {
+      font-size: 22px;
+      font-weight: 800;
+      color: #00b4d8;
+      text-decoration: underline;
+      margin: 10px 0;
+    }
+
+    .cert-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .download-btn {
+      background-color: #00b4d8;
+      color: #0b132b;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+      transition: background 0.2s;
+    }
+
+    .download-btn:hover {
+      background-color: #90e0ef;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="header-nav">
+      <a href="exams.html" class="back-btn">⬅ العودة للامتحانات</a>
+      <div class="brand-title">منصة مستر محمد طه</div>
+    </div>
+
+    <div class="exam-header">
+      <h1>💻 امتحان تكنولوجيا المعلومات - الصف الثاني الإعدادي</h1>
+      <p>سجل اسمك وأجب عن الأسئلة للحصول على شهادة الاعتماد التجريبية</p>
+    </div>
+
+    <form id="quiz-form" onsubmit="generateCertificate(event)">
+
+      <!-- ادخال اسم الطالب -->
+      <div class="student-info-box">
+        <label for="studentName">اسم الطالب بالكامل:</label>
+        <input type="text" id="studentName" placeholder="اكتب اسمك هنا..." required>
+      </div>
+
+      <!-- السؤال الأول -->
+      <div class="question-card">
+        <div class="question-title">1. تُستخدم لغة HTML في:</div>
+        <div class="options-list">
+          <label class="option-label">
+            <input type="radio" name="q1" value="correct" required> إنشاء صفحات الويب الثابتة
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="wrong"> تعديل الصور والفيديوهات
+          </label>
+        </div>
+      </div>
+
+      <!-- السؤال الثاني -->
+      <div class="question-card">
+        <div class="question-title">2. الأمر المستخدم لإضافة صورة في HTML هو:</div>
+        <div class="options-list">
+          <label class="option-label">
+            <input type="radio" name="q2" value="wrong" required> &lt;audio&gt;
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="correct"> &lt;img&gt;
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">📤 إنهاء الامتحان واستخراج الشهادة</button>
+    </form>
+
+    <!-- منطقة الشهادة الجاهزة للتحميل -->
+    <div id="certificate-container">
+      <div class="certificate" id="certificate-content">
+        <h2>🎓 شهادة تقدير واعتماد رسمي</h2>
+        <h3>منصة مستر محمد طه - ملك التكنولوجيا</h3>
+        <p>تُشهد المنصة بأن الطالب / الطالبة:</p>
+        <p class="student-name-display" id="certName">---</p>
+        <p>قد اجتاز بنجاح اختبار <b>تكنولوجيا المعلومات - الصف الثاني الإعدادي</b>.</p>
+        <p>الدرجة المحصلة: <b id="certScore" style="color: #10b981;">-</b> من <b id="certTotal">-</b></p>
+        
+        <div class="cert-footer">
+          <div>تاريخ الإصدار: <span id="certDate"></span></div>
+          <div>رقم التحقق: <b id="certId" style="color: #00b4d8;">---</b></div>
+        </div>
+      </div>
+
+      <button onclick="downloadPDF()" class="download-btn">📥 تحميل الشهادة PDF وإرسالها للمستر</button>
+    </div>
+
+  </div>
+
+  <script>
+    function generateCertificate(event) {
+      event.preventDefault();
+
+      let name = document.getElementById('studentName').value;
+      let score = 0;
+      let total = 2;
+
+      let q1 = document.querySelector('input[name="q1"]:checked');
+      let q2 = document.querySelector('input[name="q2"]:checked');
+
+      if (!q1 || !q2) {
+        alert('⚠️ يرجى الإجابة على جميع الأسئلة أولاً!');
+        return;
+      }
+
+      if (q1.value === 'correct') score++;
+      if (q2.value === 'correct') score++;
+
+      document.getElementById('certName').innerText = name;
+      document.getElementById('certScore').innerText = score;
+      document.getElementById('certTotal').innerText = total;
+      
+      let today = new Date().toLocaleDateString('ar-EG');
+      document.getElementById('certDate').innerText = today;
+
+      let randomId = 'MT-2-' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('certId').innerText = randomId;
+
+      document.getElementById('certificate-container').style.display = 'block';
+      document.getElementById('certificate-container').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function downloadPDF() {
+      const element = document.getElementById('certificate-content');
+      const studentName = document.getElementById('studentName').value;
+
+      const opt = {
+        margin:       0.5,
+        filename:     `شهادة_ثانية_اعدادي_${studentName}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+
+</body>
+</html>

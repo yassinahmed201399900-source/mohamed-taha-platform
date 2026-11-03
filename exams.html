@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قائمة الامتحانات - منصة مستر محمد طه (ملك التكنولوجيا)</title>
+  
+  <!-- خط تجوال -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background-color: #0b132b;
+      color: #ffffff;
+      direction: rtl;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* هيدر وزر العودة */
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .back-btn {
+      background-color: #00b4d8;
+      color: #0b132b;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background-color: #90e0ef;
+    }
+
+    .brand-title {
+      color: #00b4d8;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    /* عنوان الصفحة */
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h1 {
+      font-size: 30px;
+      color: #00b4d8;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .section-title p {
+      color: #8d99ae;
+      font-size: 16px;
+    }
+
+    /* ملحوظة الامتحانات التجريبية الجديدة */
+    .notice-box {
+      background-color: rgba(255, 183, 3, 0.1);
+      border: 1px solid rgba(255, 183, 3, 0.4);
+      color: #ffb703;
+      padding: 15px 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 35px;
+      line-height: 1.6;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* شبكة الامتحانات */
+    .exams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    /* كارت الامتحان */
+    .exam-card {
+      background-color: #1c2541;
+      border: 1px solid #2a385c;
+      border-radius: 16px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      min-height: 240px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .exam-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .exam-desc {
+      color: #a0aec0;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .exam-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #00b4d8;
+      color: #0b132b;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+
+    .exam-btn:hover {
+      background-color: #90e0ef;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- زر العودة للرئيسية -->
+    <div class="header-nav">
+      <a href="index.html" class="back-btn">🏠 الرئيسية</a>
+      <div class="brand-title">منصة مستر محمد طه (ملك التكنولوجيا)</div>
+    </div>
+
+    <!-- عنوان القسم -->
+    .section-title {
+      <h1>📝 قسم الامتحانات والاختبارات</h1>
+      <p>اختر صفك الدراسي لبدء الامتحان التجريبي واستخراج الشهادة</p>
+    </div>
+
+    <!-- ملحوظة الامتحانات التجريبية -->
+    <div class="notice-box">
+      ⚠️ تنبيه هام: الامتحانات الحالية غير إجبارية للحل، وهي امتحانات تجريبية فقط للتدريب، حتى يتم إنشاء واعتماد الامتحانات الرسمية الخاصة بمستر محمد طه قريباً.
+    </div>
+
+    <!-- شبكة أزرار الامتحانات -->
+    <div class="exams-grid">
+
+      <!-- الصف الأول الإعدادي -->
+      <div class="exam-card" style="border-color: #00b4d8;">
+        <div>
+          <h2 class="exam-title" style="color: #00b4d8;">الصف الأول الإعدادي</h2>
+          <p class="exam-desc">امتحان تجريبي تفاعلي مع شهادة تقدير PDF.</p>
+        </div>
+        <div>
+          <a href="exam1.html" class="exam-btn">🚀 ابدأ امتحان أولى إعدادي</a>
+        </div>
+      </div>
+
+      <!-- الصف الثاني الإعدادي -->
+      <div class="exam-card" style="border-color: #00b4d8;">
+        <div>
+          <h2 class="exam-title" style="color: #00b4d8;">الصف الثاني الإعدادي</h2>
+          <p class="exam-desc">امتحان تجريبي تفاعلي مع شهادة تقدير PDF.</p>
+        </div>
+        <div>
+          <a href="exam2.html" class="exam-btn">🚀 ابدأ امتحان ثانية إعدادي</a>
+        </div>
+      </div>
+
+      <!-- الصف الثالث الإعدادي -->
+      <div class="exam-card" style="border-color: #00b4d8;">
+        <div>
+          <h2 class="exam-title" style="color: #00b4d8;">الصف الثالث الإعدادي</h2>
+          <p class="exam-desc">امتحان تجريبي تفاعلي مع شهادة تقدير PDF.</p>
+        </div>
+        <div>
+          <a href="exam3.html" class="exam-btn">🚀 ابدأ امتحان ثالثة إعدادي</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

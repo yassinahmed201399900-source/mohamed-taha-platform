@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كورسات وفيديوهات الشرح - مستر محمد طه</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #06b6d4;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #10b981;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); min-height: 100vh; padding: 25px; display: flex; flex-direction: column; align-items: center; }
+        .container { max-width: 1000px; width: 100%; }
+        .card { background: var(--card-bg); border-radius: 16px; padding: 25px; border: 1px solid #334155; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        h1 { color: var(--secondary); margin-bottom: 10px; }
+        .btn { padding: 10px 20px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn:hover { transform: translateY(-2px); }
+        .item-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .sub-card { background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #334155; text-align: center; }
+        .sub-card h4 { margin-bottom: 12px; color: var(--text-light); }
+        .video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; margin-bottom: 12px; background: #000; }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div style="margin-bottom: 20px;">
+            <a href="index.html" class="btn" style="background:#475569;">⬅ العودة للرئيسية</a>
+        </div>
+
+        <div class="card">
+            <h1>🎥 كورسات وفيديوهات الشرح التعليمية</h1>
+            <p style="color: var(--text-muted);">جميع فيديوهات وشروحات مستر محمد طه مرتبة ومتاحة للمشاهدة:</p>
+            
+            <div class="item-grid">
+                <div class="sub-card">
+                    <h4>💻 كورس أساسيات الحاسب الآلي وتكنولوجيا المعلومات</h4>
+                    <div class="video-box">
+                        <!-- يمكنك استبدال رابط اليوتيوب المؤقت برابط فيديو المستر الحقيقي لاحقاً -->
+                        <iframe src="https://www.youtube.com/embed/L9AWRJ7q4lA" title="Course 1" allowfullscreen></iframe>
+                    </div>
+                    <p style="color:var(--text-muted); font-size:0.85rem;">شرح مبسط وممتع لمنهج الحاسب الآلي.</p>
+                </div>
+
+                <div class="sub-card">
+                    <h4>🌐 كورس البرمجة وتطوير الويب للمرحلة الإعدادية</h4>
+                    <div class="video-box">
+                        <!-- استبدل رابط اليوتيوب الحقيقي هنا -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Course 2" allowfullscreen></iframe>
+                    </div>
+                    <p style="color:var(--text-muted); font-size:0.85rem;">أساسيات تصميم وتكويد المواقع.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
